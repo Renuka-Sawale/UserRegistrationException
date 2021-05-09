@@ -3,8 +3,8 @@ package com.userregistration;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class UserRegistrationTest {
-    /*@Test
+public class UserRegistrationTest  {
+    @Test
     public void givenFirstNameWhenProperShouldReturnResult() throws UserRegistrationException {
         UserRegistration userregistration = new UserRegistration();
         boolean result = userregistration.firstNameTest("Renuka");
@@ -17,10 +17,10 @@ public class UserRegistrationTest {
         try {
             boolean result = userregistration.firstNameTest("ren");
             Assertions.assertTrue(result);
-        }catch (UserRegistrationException e) {
+        }
+        catch (UserRegistrationException e) {
             e.printStackTrace();
         }
-
     }
 
     @Test
@@ -36,9 +36,9 @@ public class UserRegistrationTest {
         try {
             boolean result = userregistration.lastNameTest("saw");
             Assertions.assertTrue(result);
-        }catch (UserRegistrationException e) {
+        }
+        catch (UserRegistrationException e) {
             e.printStackTrace();
         }
-
-    }*/
+    }
 }
