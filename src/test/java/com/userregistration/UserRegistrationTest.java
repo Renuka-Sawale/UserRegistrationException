@@ -60,4 +60,23 @@ public class UserRegistrationTest  {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void givenPhoneNoWhenProperShouldReturnResult() throws UserRegistrationException {
+        UserRegistration userregistration = new UserRegistration();
+        boolean result = userregistration.phoneNoTest("91 8123233447");
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void givenPhoneNoWhenNotProperShouldThrowException() throws UserRegistrationException {
+        UserRegistration userregistration = new UserRegistration();
+        try {
+            boolean result = userregistration.phoneNoTest("812321231212");
+            Assertions.assertTrue(result);
+        }
+        catch (UserRegistrationException e) {
+            e.printStackTrace();
+        }
+    }
 }
