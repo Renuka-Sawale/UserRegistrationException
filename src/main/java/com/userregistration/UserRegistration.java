@@ -8,6 +8,7 @@ public class UserRegistration {
     private static final String Last_Name_Check=("^[A-Z]{1}[a-z]{2,}");
     private static final String Email_Check=("^[a-zA-Z[0-9]+.-]*+[a-zA-Z0-9+]*@[a-zA-Z0-9+.,]*+$");
     private static final String PhoneNo_Check=("^[0-9]{1,2} [0-9]{10}");
+    private static final String Password_Check=("(?=^.{8,}$)((?=.*\\d)|(?=.*\\W+))(?![.\\n])(?=.*[A-Z])(?=.*[a-z]).*$");
 
     public boolean firstNameTest(String firstName) throws UserRegistrationException {
         boolean test= Pattern.compile(First_Name_Check).matcher(firstName).matches();
@@ -50,6 +51,17 @@ public class UserRegistration {
         }
         else {
             throw new UserRegistrationException("Given phone number is not valid");
+        }
+    }
+
+    public boolean passwordTest(String password) throws UserRegistrationException {
+        boolean test= Pattern.compile(Password_Check).matcher(password).matches();
+        if (test){
+            System.out.println(password + " Is valid");
+            return true;
+        }
+        else {
+            throw new UserRegistrationException("Given password is not valid");
         }
     }
 }

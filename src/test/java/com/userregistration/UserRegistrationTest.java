@@ -79,4 +79,23 @@ public class UserRegistrationTest  {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void givenPasswordWhenProperShouldReturnResult() throws UserRegistrationException {
+        UserRegistration userregistration = new UserRegistration();
+        boolean result = userregistration.passwordTest("Bridgelabz@1234");
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void givenPasswordWhenNotProperShouldThrowException() throws UserRegistrationException {
+        UserRegistration userregistration = new UserRegistration();
+        try {
+            boolean result = userregistration.passwordTest("bridgelabz");
+            Assertions.assertTrue(result);
+        }
+        catch (UserRegistrationException e) {
+            e.printStackTrace();
+        }
+    }
 }
