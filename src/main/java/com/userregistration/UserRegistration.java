@@ -6,6 +6,7 @@ public class UserRegistration {
 
     private static final String First_Name_Check="(^[A-Z]{1}[a-z]{2,}$)";
     private static final String Last_Name_Check=("^[A-Z]{1}[a-z]{2,}");
+    private static final String Email_Check=("^[a-zA-Z[0-9]+.-]*+[a-zA-Z0-9+]*@[a-zA-Z0-9+.,]*+$");
 
     public boolean firstNameTest(String firstName) throws UserRegistrationException {
         boolean test= Pattern.compile(First_Name_Check).matcher(firstName).matches();
@@ -26,6 +27,17 @@ public class UserRegistration {
         }
         else {
             throw new UserRegistrationException("Given input is not valid");
+        }
+    }
+
+    public boolean emailTest(String email) throws UserRegistrationException {
+        boolean test= Pattern.compile(Email_Check).matcher(email).matches();
+        if (test){
+            System.out.println(email + " Is valid");
+            return true;
+        }
+        else {
+            throw new UserRegistrationException("Given email is not valid");
         }
     }
 }

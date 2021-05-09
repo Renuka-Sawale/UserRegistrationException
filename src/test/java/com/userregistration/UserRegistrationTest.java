@@ -41,4 +41,23 @@ public class UserRegistrationTest  {
             e.printStackTrace();
         }
     }
+
+    @Test
+    public void givenEmailWhenProperShouldReturnResult() throws UserRegistrationException {
+        UserRegistration userregistration = new UserRegistration();
+        boolean result = userregistration.emailTest("reenu11@gmail.com");
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void givenEmailWhenNotProperShouldThrowException() throws UserRegistrationException {
+        UserRegistration userregistration = new UserRegistration();
+        try {
+            boolean result = userregistration.emailTest("r@gmail.com");
+            Assertions.assertTrue(result);
+        }
+        catch (UserRegistrationException e) {
+            e.printStackTrace();
+        }
+    }
 }
